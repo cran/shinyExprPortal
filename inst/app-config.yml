@@ -1,0 +1,27 @@
+default:
+  golem_name: shinyExprPortal
+  golem_version: 0.1.0
+  app_prod: no
+  available_modules:
+  - cohortOverview
+  - degModules
+  - degSummary
+  - degDetails
+  - corrModules
+  - singleGeneCorr
+  - singleMeasureCorr
+  - geneModulesHeatmap
+  - multiMeasureCorr
+  - compareTrajGroups
+  - geneProjectionOverlay
+  degModules:
+  - degSummary
+  - degDetails
+  corrModules:
+  - singleGeneCorr
+  - singleMeasureCorr
+  - multiMeasureCorr
+production:
+  app_prod: yes
+dev:
+  golem_wd: !expr here::here()

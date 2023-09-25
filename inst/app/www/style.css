@@ -1,0 +1,73 @@
+.control-label {
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 5px 
+} 
+
+.legendCells {
+  cursor: hover;
+}
+
+.pointtext {
+  display: none
+}
+
+/* Remove margin of a row element to avoid scroling 
+      when verticallayout is inside a splitlayout*/
+.row { 
+  margin-right: inherit;
+  margin-left: inherit;
+}
+
+#icon_menu {
+  margin-bottom: 1rem;
+}
+.iconclick {
+  cursor: pointer;
+  height: 250px;
+  width: 250px;
+  border-radius: 5px;
+  border: black 1px solid;
+}
+
+.iconclick:hover {
+  border: #337ab7 2px solid;
+  border-radius: 5px;
+}
+
+.well {
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+caption { 
+  caption-side: top !important;
+}
+
+.navbar-brand {
+  padding: 5px;
+  height: 50px;
+}
+
+span.navbar-brand {
+  line-height: 45px;
+}
+
+.navbar-brand > img {
+  max-height: 45px;
+}
+
+.navbar-nav {
+    margin:5.5px
+}
+
+.selectable {
+  -webkit-touch-callout: all; /* iOS Safari */
+  -webkit-user-select: all; /* Safari */
+  -khtml-user-select: all; /* Konqueror HTML */
+  -moz-user-select: all; /* Firefox */
+  -ms-user-select: all; /* Internet Explorer/Edge */
+  user-select: all; /* Chrome and Opera */
+}

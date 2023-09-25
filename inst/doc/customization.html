@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Portal UI and Code Customization</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Portal UI and Code Customization</h1>
+
+
+
+<p>This article describes how to customize certain visual aspects using
+the configuration file and how to extend the portal with custom
+modules.</p>
+<div id="customizing-the-portal-ui" class="section level2">
+<h2>Customizing the portal UI</h2>
+<p>There are two ways to customize the interface of a deployed portal:
+global settings and module-specific settings. Existing module-specific
+settings should be stable, but new ones may be added over time.</p>
+<div id="global-customizations" class="section level3">
+<h3>Global customizations</h3>
+<p>In the current version, you can add an acronym or logo, change the
+title of the tab in the browser, add an icon-based shortcut menu to the
+landing page and modify the <a href="https://bootswatch.com">Bootswatch</a> theme.</p>
+<p>The configuration file should look like this for each of the settings
+above:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> PROJ</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">logo</span><span class="kw">:</span><span class="at"> logo.png</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">windowtitle</span><span class="kw">:</span><span class="at"> MyProject analysis portal</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">iconMenu</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="kw">-</span><span class="at"> moduleName</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="kw">-</span><span class="at"> moduleName2</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">bootswatch</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at"> </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> theme_name</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at"> </span><span class="fu">version</span><span class="kw">:</span><span class="at"> 3, 4 or 5</span></span></code></pre></div>
+<p>For the logo and the icon menu, you should create a folder named
+<strong>www</strong> in your project’s folder and place the
+corresponding images inside, so the resulting file tree looks like
+this:</p>
+<pre><code>project/
+├─about.md
+├─app.R
+├─config.yaml
+├─...
+└─www/
+  ├─logo.png
+  └─...</code></pre>
+<p>The icon menu enables using a screenshot of a module to highlight
+results and provide a shortcut to it. A PNG file named for each module
+should be created and placed inside the www folder and the names of the
+modules should be listed under iconMenu in the configuration file, as
+shown above.</p>
+<p>Regarding the themes, the current version of the package will work
+well with most light-based themes. Not every theme was tested so it’s
+recommended that you test different themes until you find one that works
+well.</p>
+</div>
+<div id="module-customization" class="section level3">
+<h3>Module customization</h3>
+<p>Every module included in the package supports <code>title</code> and
+<code>description</code> fields. The title is the entry on the menu,
+whereas the description field is the text that appears between the menu
+and the content of the module. The description should be used to
+indicate to the user how to use the module and also describe some
+aspects of that module if needed. For example, it could include a link
+to an external resource or references.</p>
+<p>Besides these two fields, most modules include some degree of
+customization of colors:</p>
+<p><strong>compareTrajGroups</strong>: a list of HTML-compatible colors
+for the points for each different value of trajectory_category
+(e.g. time points).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">compareTrajGroups</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_traj_colors</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;#ff0000&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;#ff00ff&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;#0000ff&quot;</span><span class="kw">]</span></span></code></pre></div>
+<p><strong>degDetails</strong>: a list of HTML-compatible colors for
+non-significant, logFC-only significant, p-value-only significant and
+logFC and p-value significant genes in the volcano plot</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">degDetails</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_point_colors</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;black&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;yellow&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;red&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;blue&quot;</span><span class="kw">]</span></span></code></pre></div>
+<p><strong>geneModulesHeatmap</strong>: colors (discrete or for
+interpolation) or RColorBrewer palettes for the variables that can be
+used in annotations for the heatmaps and a RColorBrewer palette for the
+heatmap colors.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">geneModulesHeatmap</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_annotation_colors</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="at">    </span><span class="fu">NumericVar1</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;red&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;blue&quot;</span><span class="kw">]</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="at">    </span><span class="fu">NumericVar2</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;RdBu&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="at">    </span><span class="fu">DiscreteVar1</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;yellow&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;green&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;blue&quot;</span><span class="kw">]</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_heatmap_palette</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;BrBG&quot;</span></span></code></pre></div>
+<p><strong>multiMeasureCorr</strong>: RColorBrewer palete for heatmap
+colors.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">multiMeasureCorr</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_heatmap_palette</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;BrBG&quot;</span></span></code></pre></div>
+<p><strong>singleGeneCorr</strong>: list of colors for categorical
+variables in scatterplot.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">singleGeneCorr</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="at">  </span><span class="fu">custom_point_colors</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="at">    </span><span class="fu">SubjectVar1</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;red&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;blue&quot;</span><span class="kw">]</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="at">    </span><span class="fu">SubjectVar2</span><span class="kw">:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="at">      </span><span class="fu">Value1</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;red&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="at">      </span><span class="fu">Value2</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;blue&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="using-custom-modules" class="section level2">
+<h2>Using custom modules</h2>
+<p>It is also possible to include new modules without modifying the
+source code of the package. The feature is primarily aimed at supporting
+features that may have a more niche use case, but it is also useful to
+experiment with new ideas. New code should be implemented based on the
+following template, for a new <code>moduleName</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>moduleName_config <span class="ot">&lt;-</span> <span class="cf">function</span>(config, ...) { </span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Checking moduleName configuration&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="co"># Add dependency names here</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>  requiredPackages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="fu">stopIfNotInstalled</span>(requiredPackages, <span class="st">&quot;moduleName&quot;</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(config<span class="sc">$</span>required_variable)) {</span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;moduleName: </span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="st">         &#39;required_variable&#39; is missing&quot;</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>  }</span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>  config</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>mod_moduleName_ui <span class="ot">&lt;-</span> <span class="cf">function</span>(module_name, config, module_config) {</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(module_name)</span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>  title <span class="ot">&lt;-</span> module_config<span class="sc">$</span>title</span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a>  description <span class="ot">&lt;-</span> module_config<span class="sc">$</span>description</span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a>  </span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a>  required_variable <span class="ot">&lt;-</span> module_config<span class="sc">$</span>required_variables</span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a>  </span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a>  <span class="fu">tabPanel</span>(</span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a>      <span class="at">title =</span> title <span class="sc">%||%</span> <span class="st">&quot;Default title&quot;</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a>      <span class="at">value =</span> <span class="st">&quot;moduleName&quot;</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a>      tags<span class="sc">$</span><span class="fu">h5</span>(description <span class="sc">%||%</span> <span class="st">&quot;Default description&quot;</span>),</span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a>      <span class="fu">splitLayout</span>(</span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a>        <span class="fu">verticalLayout</span>(</span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a>          <span class="fu">wellPanel</span>(</span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a>           <span class="co"># Inputs that use the ns object above</span></span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a>          )</span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a>        ),</span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a>        <span class="fu">verticalLayout</span>(</span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a>          <span class="co"># Outputs</span></span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a>        ),</span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a>        <span class="at">cellWidths =</span> <span class="fu">c</span>(<span class="st">&quot;20%&quot;</span>, <span class="st">&quot;80%&quot;</span>),</span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a>        <span class="at">cellArgs =</span> <span class="fu">list</span>(<span class="at">style =</span> <span class="st">&quot;white-space: normal;&quot;</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a>      )</span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a>    )</span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a>  </span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a>}</span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a></span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a>mod_moduleName_server <span class="ot">&lt;-</span> <span class="cf">function</span>(module_name, config, module_config) {</span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a>  <span class="fu">moduleServer</span>(module_name, <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a>    ns <span class="ot">&lt;-</span> session<span class="sc">$</span>ns</span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a>    </span>
+<span id="cb8-44"><a href="#cb8-44" tabindex="-1"></a>    measures <span class="ot">&lt;-</span> config<span class="sc">$</span>data<span class="sc">$</span>measures</span>
+<span id="cb8-45"><a href="#cb8-45" tabindex="-1"></a>    expression_matrix <span class="ot">&lt;-</span> config<span class="sc">$</span>data<span class="sc">$</span>expression_matrix</span>
+<span id="cb8-46"><a href="#cb8-46" tabindex="-1"></a>    sample_lookup <span class="ot">&lt;-</span> config<span class="sc">$</span>data<span class="sc">$</span>sample_lookup</span>
+<span id="cb8-47"><a href="#cb8-47" tabindex="-1"></a>    subject_var <span class="ot">&lt;-</span> config<span class="sc">$</span>subject_variable</span>
+<span id="cb8-48"><a href="#cb8-48" tabindex="-1"></a>    sample_var <span class="ot">&lt;-</span> config<span class="sc">$</span>sample_variable</span>
+<span id="cb8-49"><a href="#cb8-49" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" tabindex="-1"></a>    required_variable <span class="ot">&lt;-</span> module_config<span class="sc">$</span>required_variable</span>
+<span id="cb8-51"><a href="#cb8-51" tabindex="-1"></a>    <span class="co"># Module code here</span></span>
+<span id="cb8-52"><a href="#cb8-52" tabindex="-1"></a>  })</span>
+<span id="cb8-53"><a href="#cb8-53" tabindex="-1"></a>}</span>
+<span id="cb8-54"><a href="#cb8-54" tabindex="-1"></a>  </span></code></pre></div>
+<p>With the approach above, <code>moduleName</code> can now be inclu ded
+in config.yaml file along with required or optional properties. Note
+that the config function must be defined otherwise the new module will
+not be used, although the property validation is not needed. Each new
+module can be placed in the main <code>app.R</code> or in its own
+<code>.R</code> file. If the second option is used, then each R file
+must be sourced in the <code>app.R</code>.</p>
+<blockquote>
+<p><strong>Create the template in your code folder:</strong> the package
+includes a function that will create a file for you with the template
+above. After loading the package, run
+<code>create_module_template(&quot;moduleName&quot;)</code> to create the file and
+edit it.</p>
+</blockquote>
+<p>At deployment level, besides sourcing the moduleName file if
+required, two other changes must be made in the app.R file: setting a
+vector that contains the names of any new modules and passing that
+variable as the <code>extra_modules</code> argument to
+<code>run_app</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">library</span>(shinyExprPortal)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;newModule.R&quot;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;anotherModule.R&quot;</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>extra_modules <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;newModule&quot;</span>, <span class="st">&quot;anotherModule&quot;</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="fu">run_app</span>(<span class="st">&quot;config.yaml&quot;</span>, <span class="at">extra_modules =</span> extra_modules)</span></code></pre></div>
+<p>If you are unsure about how to implement a feature in a new module,
+please post an issue on the package github or check the source code for
+the existing modules.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
