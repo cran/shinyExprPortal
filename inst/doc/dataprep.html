@@ -341,16 +341,16 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <p>The package was developed to support the most common data shapes and
-file formats used in bioinformatics. This guide describes how each filed
-used by the portal should be structured.</p>
+file formats used in bioinformatics. This guide describes how to
+structure each file used by the portal.</p>
 <p><strong>Expression matrix</strong></p>
-<p>The expected format for matrices contains sample identifiers in
-columns and symbols in rows. The <strong>best</strong> format for the
-portal is saving an R object of matrix type as an .rds file because it
-will load faster, although it is also possible to save the matrix as a
-CSV or TSV file. If using the latter, ensure that the first row (with
-exception of the first column) contain the sample identifiers and that
-the first column contain the transcript identifiers.</p>
+<p>The expected format for a matrix is sample identifiers in columns and
+symbols in rows. The optimal file format for the portal is an R object
+of matrix type saved as an .rds file, because it will load faster,
+although it is also possible to save the matrix as a CSV or TSV file. If
+using the latter, ensure that the first row (with exception of the first
+column) contain the sample identifiers and that the first column
+contains the transcript identifiers.</p>
 <blockquote>
 <p><strong>Saving an RDS file</strong>: to export a matrix as an rds
 file, simply run:<br />
@@ -381,110 +381,110 @@ file, simply run:<br />
 <tbody>
 <tr class="odd">
 <td align="left">ABC</td>
-<td align="right">-0.6350105</td>
-<td align="right">-1.0119604</td>
-<td align="right">0.1991592</td>
-<td align="right">0.6542105</td>
-<td align="right">1.6557780</td>
-<td align="right">1.3006215</td>
+<td align="right">1.2808789</td>
+<td align="right">-0.3403144</td>
+<td align="right">0.7405878</td>
+<td align="right">-1.2682231</td>
+<td align="right">1.7612731</td>
+<td align="right">0.1989516</td>
 </tr>
 <tr class="even">
 <td align="left">BCD</td>
-<td align="right">0.1423644</td>
-<td align="right">0.4439147</td>
-<td align="right">0.3851224</td>
-<td align="right">0.9145611</td>
-<td align="right">0.1283214</td>
-<td align="right">0.0329531</td>
+<td align="right">1.5544347</td>
+<td align="right">1.1616882</td>
+<td align="right">0.1789133</td>
+<td align="right">0.2862653</td>
+<td align="right">-0.7242087</td>
+<td align="right">-0.4038258</td>
 </tr>
 <tr class="odd">
 <td align="left">CDE</td>
-<td align="right">0.6514319</td>
-<td align="right">1.1781673</td>
-<td align="right">0.7661421</td>
-<td align="right">-0.4730655</td>
-<td align="right">-0.5207390</td>
-<td align="right">-0.1309093</td>
+<td align="right">-2.0469364</td>
+<td align="right">0.8210368</td>
+<td align="right">-1.0798965</td>
+<td align="right">-1.0908267</td>
+<td align="right">1.5410485</td>
+<td align="right">-0.6829172</td>
 </tr>
 <tr class="even">
 <td align="left">DEF</td>
-<td align="right">0.0912415</td>
-<td align="right">0.0032527</td>
-<td align="right">-1.3700762</td>
-<td align="right">-0.1169829</td>
-<td align="right">0.0724470</td>
-<td align="right">0.0933757</td>
+<td align="right">-0.5139870</td>
+<td align="right">-0.9428223</td>
+<td align="right">-0.1451265</td>
+<td align="right">-0.5743365</td>
+<td align="right">0.8751267</td>
+<td align="right">0.0278288</td>
 </tr>
 <tr class="odd">
 <td align="left">EFG</td>
-<td align="right">-0.3119927</td>
-<td align="right">-0.7016510</td>
-<td align="right">1.2023114</td>
-<td align="right">-0.7907906</td>
-<td align="right">0.6749620</td>
-<td align="right">0.3818626</td>
+<td align="right">0.6853862</td>
+<td align="right">1.6749440</td>
+<td align="right">-0.6704449</td>
+<td align="right">-0.0808082</td>
+<td align="right">-0.4222591</td>
+<td align="right">-0.9299531</td>
 </tr>
 <tr class="even">
 <td align="left">FGH</td>
-<td align="right">0.6036103</td>
-<td align="right">-0.9283518</td>
-<td align="right">-0.6702763</td>
-<td align="right">-0.6142200</td>
-<td align="right">0.3517304</td>
-<td align="right">-0.4843542</td>
+<td align="right">1.1945784</td>
+<td align="right">1.2741069</td>
+<td align="right">-0.4209291</td>
+<td align="right">-0.6328691</td>
+<td align="right">0.5741515</td>
+<td align="right">1.7751814</td>
 </tr>
 <tr class="odd">
 <td align="left">GHI</td>
-<td align="right">0.1218861</td>
-<td align="right">-0.7557435</td>
-<td align="right">0.2791841</td>
-<td align="right">-0.1719913</td>
-<td align="right">-0.4125296</td>
-<td align="right">0.4637585</td>
+<td align="right">-0.4131409</td>
+<td align="right">0.8284786</td>
+<td align="right">-0.1080951</td>
+<td align="right">-1.3438086</td>
+<td align="right">-0.2667228</td>
+<td align="right">1.1090296</td>
 </tr>
 <tr class="even">
 <td align="left">HIJ</td>
-<td align="right">0.9084595</td>
-<td align="right">0.4464043</td>
-<td align="right">0.6247638</td>
-<td align="right">-0.5190076</td>
-<td align="right">-0.2444860</td>
-<td align="right">-1.6333206</td>
+<td align="right">1.4878176</td>
+<td align="right">0.4515905</td>
+<td align="right">-2.5116917</td>
+<td align="right">0.8068692</td>
+<td align="right">-1.1254763</td>
+<td align="right">0.2984453</td>
 </tr>
 <tr class="odd">
 <td align="left">IJK</td>
-<td align="right">1.5778697</td>
-<td align="right">0.1144485</td>
-<td align="right">-1.7427644</td>
-<td align="right">0.9264119</td>
-<td align="right">-0.0014556</td>
-<td align="right">-0.9228064</td>
+<td align="right">-0.9682975</td>
+<td align="right">-1.6839452</td>
+<td align="right">0.6029759</td>
+<td align="right">0.2985707</td>
+<td align="right">-0.6114281</td>
+<td align="right">1.0904955</td>
 </tr>
 <tr class="even">
 <td align="left">JKL</td>
-<td align="right">0.0062370</td>
-<td align="right">-1.2637856</td>
-<td align="right">-0.3684103</td>
-<td align="right">2.1207930</td>
-<td align="right">-0.8231414</td>
-<td align="right">0.3270546</td>
+<td align="right">-0.8593043</td>
+<td align="right">-0.0634085</td>
+<td align="right">-1.9162324</td>
+<td align="right">-1.2169159</td>
+<td align="right">0.3318130</td>
+<td align="right">1.4729358</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Measures table</strong></p>
 <p>The measures table follows the format of one row per subject (even if
 they have more than one sample collected) with the measures across
-columns. A data.frame or tibble object can be saved in an .rds file and
-used, otherwise CSV or TSV files are also supported.</p>
+columns. A data.frame can be saved in an .rds file, but CSV or TSV files
+are also supported.</p>
 <p>Measures collected over time should be represented in separate
 columns, with the convention (enforced by default) of a time code as a
 suffix for measure names, separated by underscore (<code>_</code>) –
 this means that underscore cannot be used in long measure names as well.
 For example, for disease activity collected over four time points, the
 expected names are: diseaseActivity_Baseline, diseaseActivity_Week1,
-diseaseActivity_Week2 and diseaseActivity_Week3. By default, it is
-invalid to use a name such as Disease_Activity_Baseline. The time
-separator can be modified in the configuration file by setting
+diseaseActivity_Week2 and diseaseActivity_Week3. Using the default
+settings, it is invalid to use a name such as Disease_Activity_Baseline.
+The time separator can be modified in the configuration file by setting
 <code>timesep</code> to the desired separator.</p>
 <p>The following is a valid example of a measures table:</p>
 <table>
@@ -500,23 +500,23 @@ separator can be modified in the configuration file by setting
 <tbody>
 <tr class="odd">
 <td align="left">p01</td>
-<td align="right">231.3447</td>
-<td align="right">169.6923</td>
-<td align="right">31</td>
+<td align="right">201.0261</td>
+<td align="right">221.2232</td>
+<td align="right">32</td>
 <td align="left">Yes</td>
 </tr>
 <tr class="even">
 <td align="left">p02</td>
-<td align="right">155.9111</td>
-<td align="right">176.8763</td>
-<td align="right">34</td>
+<td align="right">230.6424</td>
+<td align="right">164.8883</td>
+<td align="right">88</td>
 <td align="left">Yes</td>
 </tr>
 <tr class="odd">
 <td align="left">p03</td>
-<td align="right">178.3060</td>
-<td align="right">156.0615</td>
-<td align="right">70</td>
+<td align="right">213.7581</td>
+<td align="right">209.0771</td>
+<td align="right">72</td>
 <td align="left">No</td>
 </tr>
 </tbody>
@@ -524,14 +524,14 @@ separator can be modified in the configuration file by setting
 <p><strong>Lookup table</strong></p>
 <p>For datasets where a subject has more than one sample (e.g. samples
 over time, from different tissues or combinations thereof), a lookup
-table should be constructed and saved as a data.frame or tibble format
-in rds, CSV or TSV.</p>
-<p>This table will map subject identifiers to sample identifiers, with
-the expression matrix containing data for <em>all</em> samples in the
-dataset. The table should also contain metadata that allows selection of
-groups of samples. For example, if subjects and samples vary on time,
-drug groups and tissues, the lookup table should have one column for
-each category. The following is an example of such a table:</p>
+table should be constructed and saved as a data.frame in an .rds file,
+CSV or TSV.</p>
+<p>This table maps subject identifiers to sample identifiers, with the
+expression matrix containing data for <em>all</em> samples in the
+dataset. The table should also contain metadata that allows subsetting
+samples. For example, if subjects and samples vary over time, drug
+groups and tissues, the lookup table should have one column for each
+category. The following is an example of such a table:</p>
 <table>
 <thead>
 <tr class="header">
@@ -590,29 +590,29 @@ each category. The following is an example of such a table:</p>
 <p>In the case above, patients p01 and p02 belong to drug group d1,
 while patient p03 belongs to group d2. All patients have samples
 collected at months 1 and 2 (encoded as m01 and m02), and all samples
-are from the same tissue (A). Note that, in this example, drug group
-differentiates samples from different subjects, but not necessarily
-samples from the same subject.</p>
+are from the same tissue (A). In this example, drug groups samples from
+different subjects (i.e. there is no overlap of subjects between the two
+drug groups).</p>
 <p>The lookup table can also be enriched with other characteristics of
-subjects that can be use to partition them, such as age, gender, or
+subjects that can be use to partition samples, such as age, sex, or
 others. Outputs of methods such as clustering can also be added to the
-table: this enables exploring, for example, correlations in different
-clusters, or comparing trajectories across different clusters.</p>
+table: this enables the exploration of correlations in different
+clusters, or comparing trajectories across different clusters, for
+example.</p>
 <div id="validation-checks" class="section level3">
 <h3>Validation checks</h3>
 <p>The package does a very lightweight validation of the loaded files,
 only checking if subjects and samples match. It does not ensure that the
 correct transformations have been applied to the expression data, nor
-does it warn about or modify missing data – in modules where expression
-is paired with a measure, if a subject’s measure is missing that will be
-excluded from plots and calculations that include that measure.</p>
+does it warn about or modify missing data – a subject is not included in
+calculations if they have a missing value for a particular measure.</p>
 <p>The following checks ARE made:</p>
 <p><strong>Matching samples and subjects</strong>: the package will
 confirm that every sample in the expression matrix is matched to at
-least one subject in the lookup table. It will also ensure that all
-subjects in the measures table match to at least one sample in the
-lookup table. That is, there can be no excess of samples or subjects in
-each table.</p>
+least one subject in the lookup table. It also checks that all subjects
+in the measures table match to at least one sample in the lookup table.
+That is, there can be no excess of samples or subjects in each
+table.</p>
 <p><strong>Matrix format:</strong> if using an .rds file, the package
 will check that the expression matrix was indeed saved as a matrix
 object in the rds file. This is to ensure that the rownames are read
@@ -624,13 +624,12 @@ properly.</p>
 <h3>Differential expression analysis results</h3>
 <p>The package includes two modules to showcase results of differential
 expression analysis (see <a href="config.html">config</a> for more
-details). These modules will read files created using
-<code>limma</code>, <code>edgeR</code> or <code>deseq2</code>. All files
-should be saved with column names and the column names must not be
-changed – the only exception is you want to mix models from different
-packages, then you should rename the columns so that all results have
-the same column names (e.g. p-values are identified in the same way
-across all files).</p>
+details). These modules read files created using <code>limma</code>,
+<code>edgeR</code> or <code>deseq2</code>. All files should be saved
+with column names and the column names must not be changed – the only
+exception is you want to mix models from different packages, then you
+should rename the columns so that all results have the same column names
+(e.g. p-values are identified in the same way across all files).</p>
 <p>These modules require the creation of a table that lists all model
 results and they support the use of additional columns in the table to
 organize results from different types of models or subsets of samples.
