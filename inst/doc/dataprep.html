@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -381,93 +381,93 @@ file, simply run:<br />
 <tbody>
 <tr class="odd">
 <td align="left">ABC</td>
-<td align="right">1.2808789</td>
-<td align="right">-0.3403144</td>
-<td align="right">0.7405878</td>
-<td align="right">-1.2682231</td>
-<td align="right">1.7612731</td>
-<td align="right">0.1989516</td>
+<td align="right">0.4137077</td>
+<td align="right">-0.4100781</td>
+<td align="right">-0.8034052</td>
+<td align="right">-1.0858184</td>
+<td align="right">1.1258857</td>
+<td align="right">1.1834260</td>
 </tr>
 <tr class="even">
 <td align="left">BCD</td>
-<td align="right">1.5544347</td>
-<td align="right">1.1616882</td>
-<td align="right">0.1789133</td>
-<td align="right">0.2862653</td>
-<td align="right">-0.7242087</td>
-<td align="right">-0.4038258</td>
+<td align="right">-0.7176503</td>
+<td align="right">0.5266471</td>
+<td align="right">0.8856287</td>
+<td align="right">0.3479188</td>
+<td align="right">0.7926065</td>
+<td align="right">-0.1670674</td>
 </tr>
 <tr class="odd">
 <td align="left">CDE</td>
-<td align="right">-2.0469364</td>
-<td align="right">0.8210368</td>
-<td align="right">-1.0798965</td>
-<td align="right">-1.0908267</td>
-<td align="right">1.5410485</td>
-<td align="right">-0.6829172</td>
+<td align="right">1.1384836</td>
+<td align="right">0.1106547</td>
+<td align="right">-1.2468175</td>
+<td align="right">1.0051249</td>
+<td align="right">1.1157548</td>
+<td align="right">0.2848116</td>
 </tr>
 <tr class="even">
 <td align="left">DEF</td>
-<td align="right">-0.5139870</td>
-<td align="right">-0.9428223</td>
-<td align="right">-0.1451265</td>
-<td align="right">-0.5743365</td>
-<td align="right">0.8751267</td>
-<td align="right">0.0278288</td>
+<td align="right">-1.1443094</td>
+<td align="right">-0.2637818</td>
+<td align="right">-1.7259818</td>
+<td align="right">-0.1132546</td>
+<td align="right">-0.7842959</td>
+<td align="right">-0.0104621</td>
 </tr>
 <tr class="odd">
 <td align="left">EFG</td>
-<td align="right">0.6853862</td>
-<td align="right">1.6749440</td>
-<td align="right">-0.6704449</td>
-<td align="right">-0.0808082</td>
-<td align="right">-0.4222591</td>
-<td align="right">-0.9299531</td>
+<td align="right">0.6770715</td>
+<td align="right">-1.3136350</td>
+<td align="right">0.3397802</td>
+<td align="right">3.0389939</td>
+<td align="right">1.0272939</td>
+<td align="right">0.8198795</td>
 </tr>
 <tr class="even">
 <td align="left">FGH</td>
-<td align="right">1.1945784</td>
-<td align="right">1.2741069</td>
-<td align="right">-0.4209291</td>
-<td align="right">-0.6328691</td>
-<td align="right">0.5741515</td>
-<td align="right">1.7751814</td>
+<td align="right">0.4793522</td>
+<td align="right">0.2878496</td>
+<td align="right">0.1050468</td>
+<td align="right">-1.5638508</td>
+<td align="right">0.7359080</td>
+<td align="right">-0.6190104</td>
 </tr>
 <tr class="odd">
 <td align="left">GHI</td>
-<td align="right">-0.4131409</td>
-<td align="right">0.8284786</td>
-<td align="right">-0.1080951</td>
-<td align="right">-1.3438086</td>
-<td align="right">-0.2667228</td>
-<td align="right">1.1090296</td>
+<td align="right">-1.4971350</td>
+<td align="right">1.9481436</td>
+<td align="right">-1.0834471</td>
+<td align="right">-0.8751568</td>
+<td align="right">-1.1661540</td>
+<td align="right">0.7411353</td>
 </tr>
 <tr class="even">
 <td align="left">HIJ</td>
-<td align="right">1.4878176</td>
-<td align="right">0.4515905</td>
-<td align="right">-2.5116917</td>
-<td align="right">0.8068692</td>
-<td align="right">-1.1254763</td>
-<td align="right">0.2984453</td>
+<td align="right">-0.1205749</td>
+<td align="right">-0.3348467</td>
+<td align="right">0.5639337</td>
+<td align="right">0.4583548</td>
+<td align="right">-0.6244463</td>
+<td align="right">0.1288162</td>
 </tr>
 <tr class="odd">
 <td align="left">IJK</td>
-<td align="right">-0.9682975</td>
-<td align="right">-1.6839452</td>
-<td align="right">0.6029759</td>
-<td align="right">0.2985707</td>
-<td align="right">-0.6114281</td>
-<td align="right">1.0904955</td>
+<td align="right">0.4252414</td>
+<td align="right">-0.6908723</td>
+<td align="right">0.0958191</td>
+<td align="right">-1.1726089</td>
+<td align="right">-0.0442053</td>
+<td align="right">2.9929353</td>
 </tr>
 <tr class="even">
 <td align="left">JKL</td>
-<td align="right">-0.8593043</td>
-<td align="right">-0.0634085</td>
-<td align="right">-1.9162324</td>
-<td align="right">-1.2169159</td>
-<td align="right">0.3318130</td>
-<td align="right">1.4729358</td>
+<td align="right">0.0998029</td>
+<td align="right">1.0925810</td>
+<td align="right">-0.7537332</td>
+<td align="right">1.0935580</td>
+<td align="right">-0.5456627</td>
+<td align="right">0.5376329</td>
 </tr>
 </tbody>
 </table>
@@ -500,23 +500,23 @@ The time separator can be modified in the configuration file by setting
 <tbody>
 <tr class="odd">
 <td align="left">p01</td>
-<td align="right">201.0261</td>
-<td align="right">221.2232</td>
-<td align="right">32</td>
+<td align="right">224.5588</td>
+<td align="right">247.2639</td>
+<td align="right">39</td>
 <td align="left">Yes</td>
 </tr>
 <tr class="even">
 <td align="left">p02</td>
-<td align="right">230.6424</td>
-<td align="right">164.8883</td>
-<td align="right">88</td>
+<td align="right">229.4511</td>
+<td align="right">170.1934</td>
+<td align="right">62</td>
 <td align="left">Yes</td>
 </tr>
 <tr class="odd">
 <td align="left">p03</td>
-<td align="right">213.7581</td>
-<td align="right">209.0771</td>
-<td align="right">72</td>
+<td align="right">199.6604</td>
+<td align="right">238.1579</td>
+<td align="right">77</td>
 <td align="left">No</td>
 </tr>
 </tbody>
