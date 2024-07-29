@@ -1,3 +1,10 @@
+# shinyExprPortal 1.2.1
+
+### BUG FIXES
+
+- Fix system.file prefix
+- Fix empty subset check in singleGeneCorr
+
 # shinyExprPortal 1.2.0
 
 ### BUG FIXES
